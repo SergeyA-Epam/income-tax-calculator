@@ -19,6 +19,7 @@ jobs:
         working-directory: ./incometaxcalculator.client
 
     steps:
+    - run: pwd && ls
     - uses: actions/checkout@v4
     - name: Use Node.js
       uses: actions/setup-node@v4
