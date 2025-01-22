@@ -98,7 +98,11 @@ public class TaxCalculationResultTests
         Assert.Multiple(() =>
         {
             Assert.That(taxResult.GrossAnnualSalary, Is.EqualTo(40000));
-            Assert.That(taxResult.NetAnnualSalary, Is.EqualTo(40000));
+            Assert.That(taxResult.GrossMonthlySalary, Is.EqualTo(3333.33));
+            Assert.That(taxResult.NetAnnualSalary, Is.EqualTo(29000));
+            Assert.That(taxResult.NetMonthlySalary, Is.EqualTo(2416.67));
+            Assert.That(taxResult.AnnualTaxPaid, Is.EqualTo(11000));
+            Assert.That(taxResult.MonthlyTaxPaid, Is.EqualTo(916.67));
         });
     }
 }
