@@ -12,6 +12,10 @@ on:
 jobs:
   build:
 
+    defaults:
+      run:
+        working-directory: incometaxcalculator.client
+
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +27,7 @@ jobs:
       with:
         node-version: 22.x
         cache: 'npm'
+        cache-dependency-path: incometaxcalculator.client/package-lock.json
     - run: npm ci
     - run: npm run build
     - run: npm test
