@@ -1,4 +1,4 @@
-# IncomeTaxCalculator
+# Income Tax Calculator
 
 [![.NET](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml)
 

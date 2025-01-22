@@ -1,24 +1,24 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+﻿<div class="container">
+    <form [formGroup]="salaryForm" (ngSubmit)="calculateSalaryTax()">
+        <label for="salary">Gross Annual Salary:</label>
+        <mat-form-field appearance="fill">
+            <input matInput id="salary" formControlName="salary" type="number" required>
+            <mat-error *ngIf="salaryForm.controls['salary'].hasError('required')">
+                Gross salary is required
+            </mat-error>
+        </mat-form-field>
 
-<p>This component demonstrates fetching data from the server.</p>
+        <button mat-raised-button color="primary" type="submit" [disabled]="salaryForm.invalid || isCalculating">
+            Calc
+        </button>
+    </form>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+    <div *ngIf="result">
+        <p>Gross Annual Salary: £ {{ result.grossAnnualSalary }}</p>
+        <p>Gross Monthly Salary: £ {{ result.grossMonthlySalary }}</p>
+        <p>Net Annual Salary: £ {{ result.netAnnualSalary }}</p>
+        <p>Net Monthly Salary: £ {{ result.netMonthlySalary }}</p>
+        <p>Annual Tax Paid: £ {{ result.annualTaxPaid }}</p>
+        <p>Monthly Tax Paid: £ {{ result.monthlyTaxPaid }}</p>
+    </div>
+</div>

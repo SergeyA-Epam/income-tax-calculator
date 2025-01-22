@@ -1,14 +1,18 @@
-﻿:host {
-    max-width: 1280px;
-    padding: 2rem;
-    text-align: center;
-}
+﻿.container {
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+    form {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
 
-table {
-    margin: 0 auto;
+        label, button {
+            margin-bottom: 1rem;
+        }
+    }
 }

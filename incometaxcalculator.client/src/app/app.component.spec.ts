@@ -1,6 +1,11 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
+import { TaxCalculationResult } from '../models/tax-calculation-result';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -10,7 +15,13 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [HttpClientTestingModule]
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule, // Needed if you are using Angular Material animations
+        MatInputModule,
+        MatButtonModule
+      ]
     }).compileComponents();
   });
 
@@ -28,18 +39,31 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should retrieve weather forecasts from the server', () => {
-    const mockForecasts = [
-      { date: '2021-10-01', temperatureC: 20, temperatureF: 68, summary: 'Mild' },
-      { date: '2021-10-02', temperatureC: 25, temperatureF: 77, summary: 'Warm' }
-    ];
+  it('should send POST request to calculate salary tax when form is valid', () => {
+    component.salaryForm.setValue({ salary: 50000 });
+    const mockResult: TaxCalculationResult = {
+      grossAnnualSalary: 50000,
+      grossMonthlySalary: 4166.67,
+      netAnnualSalary: 38000,
+      netMonthlySalary: 3166.67,
+      annualTaxPaid: 12000,
+      monthlyTaxPaid: 1000
+    };
 
-    component.ngOnInit();
+    component.calculateSalaryTax();
 
-    const req = httpMock.expectOne('/weatherforecast');
-    expect(req.request.method).toEqual('GET');
-    req.flush(mockForecasts);
+    const req = httpMock.expectOne('/api/calculate');
+    expect(req.request.method).toEqual('POST');
+    req.flush(mockResult);
 
-    expect(component.forecasts).toEqual(mockForecasts);
+    expect(component.result).toEqual(mockResult);
+  });
+
+  it('should not send POST request if form is invalid', () => {
+    component.salaryForm.setValue({ salary: '' }); // Invalid value
+    component.calculateSalaryTax();
+    expect(component.salaryForm.valid).toBeFalse();
+
+    const req = httpMock.expectNone('/api/calculate');
   });
 });
