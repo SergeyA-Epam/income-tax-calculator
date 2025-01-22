@@ -1,5 +1,7 @@
 # IncomeTaxCalculator
 
+[![.NET](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml)
+
 ASP.NET 9 + Angular 19 are used.
 
 ## OpenAPI / Swagger
