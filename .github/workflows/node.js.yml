@@ -21,13 +21,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Change directory
+      run: cd incometaxcalculator.client && pwd
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Change directory
-      run: cd incometaxcalculator.client
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build
     - run: npm test
