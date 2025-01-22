@@ -47,7 +47,7 @@
         ]
       }
     },
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true,
     listenAddress: 'localhost',
     hostname: 'localhost'
