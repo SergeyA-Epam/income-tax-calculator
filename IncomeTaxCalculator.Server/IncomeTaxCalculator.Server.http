@@ -9,7 +9,7 @@ POST {{IncomeTaxCalculator.Server_HostAddress}}/api/calculate
 Content-Type: application/json
 
 {
-  "salary": 1000
+  "salary": 100000
 }
 
 ###
