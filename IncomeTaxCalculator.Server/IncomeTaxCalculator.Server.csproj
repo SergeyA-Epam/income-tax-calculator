@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SpaRoot>..\incometaxcalculator.client</SpaRoot>
+    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+    <SpaProxyServerUrl>https://localhost:50286</SpaProxyServerUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
+      <Version>9.*-*</Version>
+    </PackageReference>
+    <PackageReference Include="NSwag.AspNetCore" Version="14.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\incometaxcalculator.client\incometaxcalculator.client.esproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\IncomeTaxCalculator.Core\IncomeTaxCalculator.Core.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.Data\IncomeTaxCalculator.Data.csproj" />
+  </ItemGroup>
+
+</Project>
