@@ -18,3 +18,7 @@ UI:
 ## Database usage
 
 The database in this project is just for the sake of using a database. InMemory database is used.
+
+## Screenshot
+
+![image](https://github.com/user-attachments/assets/2f9bc993-184b-43e6-955b-63cc9abc78c2)
