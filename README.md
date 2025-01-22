@@ -1,6 +1,6 @@
 # Income Tax Calculator
 
-[![.NET](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/dotnet.yml) [![Node.js CI](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/node.js.yml/badge.svg)](https://github.com/SergeyA-Epam/income-tax-calculator/actions/workflows/node.js.yml)
 
 ASP.NET 9 + Angular 19 are used.
 
