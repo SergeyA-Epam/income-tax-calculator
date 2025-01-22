@@ -14,10 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./incometaxcalculator.client
-
     steps:
     - run: pwd && ls
     - uses: actions/checkout@v4
