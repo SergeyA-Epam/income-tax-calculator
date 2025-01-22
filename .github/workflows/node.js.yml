@@ -12,10 +12,6 @@ on:
 jobs:
   build:
 
-    defaults:
-      run:
-        working-directory: incometaxcalculator.client
-
     runs-on: ubuntu-latest
 
     steps:
